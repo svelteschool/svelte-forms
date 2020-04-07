@@ -1,10 +1,10 @@
 {
-  "name": "svelte-auto-forms",
+  "name": "@sveltech/routify",
   "description": "A simple form component that doesn't care about what you put in it. It just works.",
   "version": "0.1.0",
   "author": {
-    "name": "Kevin Åberg Kultalahti",
-    "email": "kevin.aberg@gmail.com"
+    "name": "Svelte School",
+    "email": "svelteschool@kevmodro.me"
   },
   "svelte": "src/index.js",
   "module": "dist/index.mjs",

@@ -1,35 +1,89 @@
-*Psst — looking for an app template? Go here --> [sveltejs/template](https://github.com/sveltejs/template)*
+<div align="center" margin="0 auto 20px">
+  <h1>svelte-forms</h1>
+    <a href='https://travis-ci.com/github/svelteschool/svelte-forms'>
+        <img src="https://travis-ci.com/svelteschool/svelte-forms.svg?branch=master" alt="Travis Badge" />
+    </a>
+  </div>
+</div>
 
----
+A no-fuss [Svelte](https://svelte.dev/) forms component that just works.
 
-# component-template
+  - **Plug'n'Play**. Input elements in, values out.
+  - Works just like a normal form. Except it does all the tedious work for you.
+  - **Extendable**. Work with most inputs and custom input components out of the box. No more fussing around with custom components and passing data back-and-forth between components.
+  - ~~**A toolbox of actions** to apply to your elements: **Validate**, **FocusOnSelect**, **Numbers**, **TextareaAutoRezie**, and many more.~~ (Soon!)
 
-A base for building shareable Svelte components. Clone it with [degit](https://github.com/Rich-Harris/degit):
+[**Try it out on the Svelte REPL!**](https://www.google.com)
 
-```bash
-npx degit sveltejs/component-template my-new-component
-cd my-new-component
-npm install # or yarn
+## Usage
+
+The package emits an `update` event that contains an object with all the values of your input elements.
+
+Using built-in HTML input elements:
+```html
+<script>
+  import Form from "@svelteschool/svelte-forms";
+  let formValues;
+</script>
+
+<Form on:update={({ detail }) => (formValues = detail)}>
+  <input
+    placeholder="Enter first name..."
+    type="text"
+    name="firstName" />
+  <input
+    placeholder="Enter last name..."
+    type="text"
+    name="lastName" />
+</Form>
 ```
 
-Your component's source code lives in `src/Component.svelte`.
+The `update` event emits an object containing your values. In the above example it would look something like this:
 
-You can create a package that exports multiple components by adding them to the `src` directory and editing `src/index.js` to reexport them as named exports.
+```js
+{
+  firstName: 'Svelte',
+  lastName: 'School
+}
+```
 
-TODO
+Inputs that do not have a `name` property or are `disabled` will not show up in the object.
 
-* [ ] some firm opinions about the best way to test components
-* [ ] update `degit` so that it automates some of the setup work
+__File inputs are not supported.__
+
+### Installing
+
+Simple. Install it using `yarn` or `npm`.
+```
+yarn add @svelteschool/svelte-forms
+```
+
+If you're using Sapper, make sure to install it as a dev dependency:
+```
+yarn add -D @svelteschool/svelte-forms
+```
+
+## Running the tests
+
+Run tests by running the test script:
+```
+yarn test
+```
+
+## Contribute
+
+If you are interested in contributing you are welcome to open PRs. Please make sure all tests pass and if you add functionality, add your own tests.
 
 
-## Setting up
+## Authors
 
-* Run `npm init` (or `yarn init`)
-* Replace this README with your own
+* **Svelte School** - [Svelte School](https://github.com/svelteschool)
+* **Kevin Åberg Kultalahti** -  [kevmodrome](https://github.com/kevmodrome)
 
+## License
 
-## Consuming components
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-Your package.json has a `"svelte"` field pointing to `src/index.js`, which allows Svelte apps to import the source code directly, if they are using a bundler plugin like [rollup-plugin-svelte](https://github.com/sveltejs/rollup-plugin-svelte) or [svelte-loader](https://github.com/sveltejs/svelte-loader) (where [`resolve.mainFields`](https://webpack.js.org/configuration/resolve/#resolve-mainfields) in your webpack config includes `"svelte"`). **This is recommended.**
+## Acknowledgments
 
-For everyone else, `npm run build` will bundle your component's source code into a plain JavaScript module (`dist/index.mjs`) and a UMD script (`dist/index.js`). This will happen automatically when you publish your component to npm, courtesy of the `prepublishOnly` hook in package.json.
+* Inspired by [lukeed](https://github.com/lukeed) and his [formee](https://github.com/lukeed/formee) library.

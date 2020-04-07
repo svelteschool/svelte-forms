@@ -1,6 +1,3 @@
-import { selectTextOnFocus } from './selectTextOnFocus.js'
-let destroyArray = []
-
 export function enhanceInputs(node) {
 
   const inputs = [].slice.call(node.querySelectorAll('input'))
@@ -10,16 +7,6 @@ export function enhanceInputs(node) {
   })
 
   node.addEventListener('input', handleUpdate)
-
-  function applyStyles(node) {
-    Array.from(node.children).forEach(i => {
-      if (i.type === 'text') destroyArray.push(selectTextOnFocus(i))
-      if (i.type === 'number') i.style.borderColor = "blue";
-      if (i.children) {
-        applyStyles(i)
-      }
-    })
-  }
 
   function handleUpdate() {
     node.dispatchEvent(new CustomEvent('update', {
@@ -61,11 +48,8 @@ export function enhanceInputs(node) {
     return out;
   }
 
-  applyStyles(node)
-
   return {
     destroy() {
-      destroyArray.forEach(destroy => destroy())
       node.removeEventListener('input', handleUpdate)
     }
   };

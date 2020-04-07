@@ -1,7 +1,7 @@
 <script>
-  import { enhanceInputs } from "./enhanceInputs.js";
+  import { getValues } from "./getValues.js";
 </script>
 
-<form use:enhanceInputs on:update>
+<form use:getValues on:update>
   <slot />
 </form>

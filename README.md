@@ -5,6 +5,9 @@
   <a href='https://travis-ci.com/github/svelteschool/svelte-forms'>
       <img src="https://travis-ci.com/svelteschool/svelte-forms.svg?branch=master" alt="Travis Badge" />
   </a>
+  <a href='https://www.npmjs.com/package/@svelteschool/svelte-forms'>
+      <img src="https://img.shields.io/npm/dt/@svelteschool/svelte-forms" alt="NPM Downloads Badge" />
+  </a>
 </div>
 
 A no-fuss [Svelte](https://svelte.dev/) forms component that just works.

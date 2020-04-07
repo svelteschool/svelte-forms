@@ -8,10 +8,6 @@ function renderForm(props) {
   const { container } = render(TestWrapper, props);
   return container.firstChild;
 }
-function renderComponent(props) {
-  const { container } = render(TestWrapper, props);
-  return container.firstChild;
-}
 
 describe('has correct values', () => {
   test('one input', async () => {

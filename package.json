@@ -24,6 +24,7 @@
     "babel-jest": "^25.2.6",
     "husky": "^4.2.3",
     "jest": "^25.2.6",
+    "np": "^6.2.0",
     "rollup": "^1.20.0",
     "rollup-plugin-svelte": "^5.0.0",
     "svelte": "^3.0.0",
@@ -35,10 +36,18 @@
     }
   },
   "keywords": [
-    "svelte"
+    "svelte",
+    "forms",
+    "svelte-forms",
+    "svelte-component"
   ],
   "files": [
     "src",
     "dist"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svelteschool/svelte-forms.git"
+  },
+  "homepage": "https://github.com/svelteschool/svelte-forms/"
 }

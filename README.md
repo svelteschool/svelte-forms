@@ -1,9 +1,10 @@
 <div align="center" margin="0 auto 20px">
-  <h1>svelte-forms</h1>
-    <a href='https://travis-ci.com/github/svelteschool/svelte-forms'>
-        <img src="https://travis-ci.com/svelteschool/svelte-forms.svg?branch=master" alt="Travis Badge" />
-    </a>
+  <div align="center">
+    <img src="logo.png" alt="formee" height="120" />
   </div>
+  <a href='https://travis-ci.com/github/svelteschool/svelte-forms'>
+      <img src="https://travis-ci.com/svelteschool/svelte-forms.svg?branch=master" alt="Travis Badge" />
+  </a>
 </div>
 
 A no-fuss [Svelte](https://svelte.dev/) forms component that just works.

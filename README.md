@@ -1,6 +1,6 @@
 <div align="center" margin="0 auto 20px">
   <div align="center">
-    <img src="logo.png" alt="formee" height="120" />
+    <img src="logo.svg" alt="svelte-forms" height="120" />
   </div>
   <a href='https://travis-ci.com/github/svelteschool/svelte-forms'>
       <img src="https://travis-ci.com/svelteschool/svelte-forms.svg?branch=master" alt="Travis Badge" />

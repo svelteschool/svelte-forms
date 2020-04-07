@@ -44,7 +44,7 @@ The `update` event emits an object containing your values. In the above example 
 ```js
 {
   firstName: 'Svelte',
-  lastName: 'School
+  lastName: 'School'
 }
 ```
 

@@ -22,7 +22,7 @@ A no-fuss [Svelte](https://svelte.dev/) form component that just works.
 
 ## Usage
 
-The package emits an `update` event that contains an object with all the values of your input elements.
+Simply bind to the components values property:
 
 Using built-in HTML input elements:
 ```html
@@ -43,7 +43,7 @@ Using built-in HTML input elements:
 </Form>
 ```
 
-The `update` event emits an object containing your values. In the above example it would look something like this:
+Here's how the values object would be structured in the above case:
 
 ```js
 {

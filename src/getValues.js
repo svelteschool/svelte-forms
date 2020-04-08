@@ -9,10 +9,13 @@ export function getValues(node) {
   node.addEventListener('input', handleUpdate)
 
   function handleUpdate() {
+    console.log('Dispatching!', serialize(node))
     node.dispatchEvent(new CustomEvent('update', {
       detail: { ...serialize(node) }
     }));
   }
+
+  handleUpdate()
 
   function serialize(form) {
     var i = 0, j, key, tmp, out = {};
@@ -47,8 +50,6 @@ export function getValues(node) {
     }
     return out;
   }
-
-  handleUpdate()
 
   return {
     destroy() {

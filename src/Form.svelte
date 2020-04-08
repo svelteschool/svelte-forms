@@ -2,6 +2,6 @@
   import { getValues } from "./getValues.js";
 </script>
 
-<form use:getValues on:update>
+<form on:update use:getValues>
   <slot />
 </form>

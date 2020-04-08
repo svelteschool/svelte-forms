@@ -10,6 +10,11 @@ function renderForm(props) {
 }
 
 describe('has correct values', () => {
+  test('default values', async () => {
+    const container = renderForm({ html: `<input name="name" placeholder="Enter name" value="From Test" />` });
+    const pre = getByTestId(container, 'values')
+    expect(pre).toHaveTextContent("From Test")
+  });
   test('one input', async () => {
     const container = renderForm({ html: `<input name="name" placeholder="Enter name" />` });
     const input = getByPlaceholderText(container, 'Enter name')

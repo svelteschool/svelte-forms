@@ -48,6 +48,8 @@ export function getValues(node) {
     return out;
   }
 
+  handleUpdate()
+
   return {
     destroy() {
       node.removeEventListener('input', handleUpdate)

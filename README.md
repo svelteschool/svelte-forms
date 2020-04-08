@@ -28,10 +28,10 @@ Using built-in HTML input elements:
 ```html
 <script>
   import Form from "@svelteschool/svelte-forms";
-  let formValues;
+  let values;
 </script>
 
-<Form on:update={({ detail }) => (formValues = detail)}>
+<Form bind:values>
   <input
     placeholder="Enter first name..."
     type="text"

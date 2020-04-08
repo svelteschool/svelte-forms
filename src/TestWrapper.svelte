@@ -2,11 +2,11 @@
   import Form from "./Form.svelte";
 
   export let html;
-  let formValues = {};
+  let values;
 </script>
 
-<Form on:update={({ detail }) => (formValues = detail)}>
+<Form bind:values>
   {@html html}
 </Form>
 
-<pre data-testid="values">{JSON.stringify(formValues)}</pre>
+<pre data-testid="values">{JSON.stringify(values)}</pre>

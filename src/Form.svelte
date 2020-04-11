@@ -3,6 +3,6 @@
   export let values;
 </script>
 
-<form on:update={({ detail }) => (values = detail)} use:getValues>
+<form on:update={({ detail }) => (values = detail)} use:getValues={values}>
   <slot />
 </form>

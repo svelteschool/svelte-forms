@@ -15,7 +15,7 @@ A no-fuss [Svelte](https://svelte.dev/) form component that just works.
   - **Plug'n'Play**. Input elements in, values out.
   - Works just like a normal form. Except it does all the tedious work for you.
   - **Extendable**. Work with most inputs and custom input components out of the box.
-  - ~~**Two-Way Binding**. Svelte-forms is two-way bound by default. Change a value in your object, and it changes in your inputs.~~ (Soon!)
+  - **Two-Way Binding**. Svelte-forms is two-way bound by default. Change a value in your object, and it changes in your inputs.
   - ~~**A toolbox of actions** to apply to your elements: **Validate**, **FocusOnSelect**, **Numbers**, **TextareaAutoRezie**, and many more.~~ (Soon!)
 
 [**Try it out on the Svelte REPL!**](https://svelte.dev/repl/ddc56a9e9f9c4289bbe714c6dd48989d?version=3.20.1)

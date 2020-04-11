@@ -1,7 +1,7 @@
 {
   "name": "@svelteschool/svelte-forms",
   "description": "A simple form component that doesn't care about what you put in it. It just works.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": {
     "name": "Svelte School",
     "email": "svelteschool@kevmodro.me"

@@ -1,67 +1,66 @@
 export function serialize(form) {
-  let i = 0, j, key, val, tmp, out = {};
-  const rgx1 = /(radio|checkbox)/i;
-  const rgx2 = /(file|reset|submit|button)/i;
+  const response = {};
 
-  while (tmp = form.elements[i++]) {
-    // Ignore unnamed, disabled, or (...rgx2) inputs
-
-    if (!tmp.name || tmp.disabled || rgx2.test(tmp.type)) continue;
-
-    key = tmp.name;
-
-    // Grab all values from multi-select
-    if (tmp.type === 'select-multiple') {
-      out[key] = [];
-      for (j = 0; j < tmp.options.length; j++) {
-        if (tmp.options[j].selected) {
-          out[key].push(tmp.options[j].value);
+  [...form.elements].forEach(function elements(input, _index) {
+    // I know this "switch (true)" isn't beautiful, but it works!!!
+    switch (true) {
+      case !input.name:
+      case input.disabled:
+      case /(file|reset|submit|button)/i.test(input.type):
+        break;
+      case /(select-multiple)/i.test(input.type):
+        response[input.name] = [];
+        [...input.options].forEach(function options(option, _selectIndex) {
+          if (option.selected) {
+            response[input.name].push(option.value);
+          }
+        });
+        break;
+      case /(radio)/i.test(input.type):
+        if (input.checked) {
+          response[input.name] = input.value;
         }
-      }
-    } else if (rgx1.test(tmp.type)) {
-      if (tmp.checked) {
-        j = out[key];
-        val = tmp.value === 'on' || tmp.value;
-        out[key] = (j == null && j !== 0)
-            ? ((tmp.type === 'radio') ? val : [val])
-            : [].concat(j, val);
-      }
-    } else if (tmp.value || tmp.value === 0) {
-      j = out[key];
-      out[key] = (j == null && j !== 0) ? tmp.value : [].concat(j, tmp.value);
+        break;
+      case /(checkbox)/i.test(input.type):
+        if (input.checked) {
+          response[input.name] = [...(response[input.name] || []), input.value];
+        }
+        break;
+      default:
+        if (input.value) {
+          response[input.name] = input.value;
+        }
+        break;
     }
-  }
-  return out;
+  });
+  return response;
 }
 
 export function deserialize(form, values) {
-  let i = 0, tmp;
-  const rgx1 = /(radio|checkbox)/i;
-
-  while (tmp = form.elements[i++]) {
-    if (!tmp.name) continue;
-
-    if (rgx1.test(tmp.type)) {
-      if (!values[tmp.name]) continue
-
-      if (values[tmp.name].includes(tmp.value)) {
-        tmp.checked = true
-      } else {
-        tmp.checked = false;
-      }
-    } else {
-      tmp.value = values[tmp.name] ? values[tmp.name] : ""
+  [...form.elements].forEach(function elements(input, _index) {
+    // I know this "switch (true)" isn't beautiful, but it works!!!
+    switch (true) {
+      case !input.name:
+      case input.disabled:
+      case /(file|reset|submit|button)/i.test(input.type):
+        break;
+      case /(select-multiple)/i.test(input.type):
+        [...input.options].forEach(function options(option, _selectIndex) {
+          option.selected =
+            values[input.name] && values[input.name].includes(option.value);
+        });
+        break;
+      case /(radio)/i.test(input.type):
+        input.checked =
+          values[input.name] && values[input.name] === input.value;
+        break;
+      case /(checkbox)/i.test(input.type):
+        input.checked =
+          values[input.name] && values[input.name].includes(input.value);
+        break;
+      default:
+        input.value = values[input.name] || "";
+        break;
     }
-
-
-  }
-}
-
-
-export function newDeserialize(form, values) {
-  const inputs = Array.from(form.elements).filter(input => input.tagName === "INPUT")
-  console.log('Node: ', inputs)
-  for (let [key, value] of Object.entries(values)) {
-
-  }
+  });
 }

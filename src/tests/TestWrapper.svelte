@@ -1,6 +1,6 @@
 <script>
   import Form from "../Form.svelte";
-  export let html;
+  export let html = "";
   export let input = {};
   export let actions = undefined;
 

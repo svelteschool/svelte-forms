@@ -163,7 +163,6 @@ describe("handles reactivity", () => {
 describe("can handle supplied actions", () => {
   test("one action with props", async () => {
     const container = renderForm({
-      html: `<input name="name" placeholder="Enter name" data-testid="t1"/>`,
       actions: [[testAction, "brown"]]
     });
 
@@ -173,7 +172,6 @@ describe("can handle supplied actions", () => {
   });
   test("one action without props", async () => {
     const container = renderForm({
-      html: `<input name="name" placeholder="Enter name" data-testid="t1"/>`,
       actions: [[testAction]]
     });
 

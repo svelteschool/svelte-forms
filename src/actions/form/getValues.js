@@ -1,4 +1,4 @@
-import { serialize, deserialize } from './utils/serialize'
+import { serialize, deserialize } from '../../utils/serialize'
 
 export function getValues(node) {
   let initialUpdateDone = 0

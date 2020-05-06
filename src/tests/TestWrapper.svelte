@@ -1,7 +1,8 @@
 <script>
-  import Form from "../src/Form.svelte";
-  export let html;
+  import Form from "../Form.svelte";
+  export let html = "";
   export let input = {};
+  export let actions = undefined;
 
   let values;
 
@@ -10,7 +11,7 @@
   }
 </script>
 
-<Form bind:values>
+<Form bind:values {actions}>
   {@html html}
 </Form>
 

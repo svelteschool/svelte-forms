@@ -1,8 +1,14 @@
 <script>
-  import { getValues } from "./getValues.js";
+  import { getValues } from "./actions/form/getValues.js";
+  import { useActions } from "./actions/actions.js";
   export let values = undefined;
+
+  export let actions = [];
 </script>
 
-<form on:update={({ detail }) => (values = detail)} use:getValues={values}>
+<form
+  on:update={({ detail }) => (values = detail)}
+  use:getValues={values}
+  use:useActions={actions}>
   <slot />
 </form>

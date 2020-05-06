@@ -8,6 +8,9 @@ import userEvent from "@testing-library/user-event";
 import { render } from "@testing-library/svelte";
 import TestWrapper from "./TestWrapper.svelte";
 
+// Things needed in the tests
+import { testAction } from "./utils/testAction.js";
+
 function renderForm(props) {
   const container = render(TestWrapper, props);
   return container.container.firstChild;
@@ -153,6 +156,27 @@ describe("handles reactivity", () => {
       expect(getByTestId(container, "o4").selected).toBe(false);
       expect(getByTestId(container, "o5").selected).toBe(false);
       expect(getByTestId(container, "o6").selected).toBe(false);
+    });
+  });
+});
+
+describe("can handle supplied actions", () => {
+  test("one action with props", async () => {
+    const container = renderForm({
+      actions: [[testAction, "brown"]]
+    });
+
+    await waitFor(() => {
+      expect(container.style.getPropertyValue('background')).toEqual("brown");
+    });
+  });
+  test("one action without props", async () => {
+    const container = renderForm({
+      actions: [[testAction]]
+    });
+
+    await waitFor(() => {
+      expect(container.style.getPropertyValue('background')).toEqual("blue");
     });
   });
 });

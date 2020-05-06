@@ -56,11 +56,22 @@ Inputs that do not have a `name` property or are `disabled` will not show up in 
 
 __File inputs are not supported.__
 
-### Installing
+## Props
+
+prop name            | type                      | default
+---------------------|---------------------------|-------------------------
+`actions`            | `[[action, actionProp]]`  | `[]`
+
+### `actions`
+The actions prop takes an array of [action, options]. The `action` is applied to the form element using the `options` just like it would be if you manually applied it to an element: `use:action={options}`.
+
+## Installing
 
 Simple. Install it using `yarn` or `npm`.
 ```
 yarn add @svelteschool/svelte-forms
+
+npm install @svelteschool/svelte-forms
 ```
 
 If you're using Sapper, make sure to install it as a dev dependency:

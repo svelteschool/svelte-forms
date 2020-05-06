@@ -1,3 +1,3 @@
-export function testAction(node, options) {
+export function testAction(node, options = "blue") {
   node.parentNode.style.setProperty('background', options)
 }

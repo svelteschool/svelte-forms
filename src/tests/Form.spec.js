@@ -164,7 +164,17 @@ describe("can handle supplied actions", () => {
   test("one action with props", async () => {
     const container = renderForm({
       html: `<input name="name" placeholder="Enter name" data-testid="t1"/>`,
-      actions: [[testAction, "blue"]]
+      actions: [[testAction, "brown"]]
+    });
+
+    await waitFor(() => {
+      expect(container.style.getPropertyValue('background')).toEqual("brown");
+    });
+  });
+  test("one action without props", async () => {
+    const container = renderForm({
+      html: `<input name="name" placeholder="Enter name" data-testid="t1"/>`,
+      actions: [[testAction]]
     });
 
     await waitFor(() => {

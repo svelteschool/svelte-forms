@@ -9,6 +9,7 @@
 <form
   on:update={({ detail }) => (values = detail)}
   use:getValues={values}
-  use:useActions={actions}>
+  use:useActions={actions}
+  on:submit>
   <slot />
 </form>

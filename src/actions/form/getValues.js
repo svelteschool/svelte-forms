@@ -3,7 +3,7 @@ import { serialize, deserialize } from '../../utils/serialize'
 export function getValues(node) {
   let initialUpdateDone = 0
 
-  const inputs = [].slice.call(node.querySelectorAll('input'))
+  const inputs = [...node.getElementsByTagName('input')]
 
   inputs.forEach(el => {
     el.oninput = node.onchange

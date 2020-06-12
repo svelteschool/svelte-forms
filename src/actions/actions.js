@@ -4,7 +4,7 @@ export function useActions(node, actions = []) {
   // Apply each action
   actions.forEach(([action, options]) => {
 
-    cont { destroy } = action(node, options); 
+    const { destroy } = action(node, options); 
     destroy && cleanupFunction.push(destroy);
   })
 

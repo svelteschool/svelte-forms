@@ -65,6 +65,10 @@ prop name            | type                      | default
 ### `actions`
 The actions prop takes an array of [action, options]. The `action` is applied to the form element using the `options` just like it would be if you manually applied it to an element: `use:action={options}`.
 
+## Validation
+
+Handling form validation is pretty straight forward in Svelte using this library, you'd pick your preferred validation library (Yup for example) and just do a reactive statement like so: $: validity = validateForm(values) where validateForm is a function that does just that.
+
 ## Installing
 
 Simple. Install it using `yarn` or `npm`.
